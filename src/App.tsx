@@ -976,7 +976,7 @@ function Form() {
       // EmailJS 설정 - 사용자가 EmailJS 대시보드에서 가져와야 할 값들
       const serviceId = 'service_1lvdtio'; // EmailJS 서비스 ID
       const templateId = 'template_ljn5wxj'; // EmailJS 템플릿 ID
-      const publicKey = 'F79bdvgki-FAWZ6eNUxAy'; // EmailJS Public Key
+      const publicKey = 'WCWGQOFdiuHkHOaxN'; // EmailJS Public Key
 
       await emailjs.send(
         serviceId,
