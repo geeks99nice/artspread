@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import svgPaths from "./svg-tw6tdu7yjv";
 
 // 이미지 경로 - 이미지가 없어도 빌드가 되도록 문자열로 처리
@@ -159,7 +160,7 @@ function Frame8() {
 function Grid() {
   return (
     <div className="absolute h-[348.75px] left-0 right-0 text-[#3b3b3b] top-0" data-name="Grid">
-      <p className="absolute font-['Fahkwang:Regular','Noto_Sans_KR:Regular',sans-serif] leading-[29.25px] left-0 text-[18px] top-[80px] w-[704px]" style={{ fontVariationSettings: "'wght' 400" }}>
+      <p className="absolute font-['Fahkwang:Regular','Noto_Sans_KR:Regular',sans-serif] leading-[29.25px] left-0 text-[18px] top-[80px] w-auto" style={{ fontVariationSettings: "'wght' 400" }}>
         색채, 질감, 빛의 조화를 통해 공간이 가진 본연의 매력을 드러내고, 감각적이면서도 안정감 있는 분위기를 만들어 벽 하나에도 감성이 담기도록 Art Spread의 터치는 공간을 새롭게 만듭니다.
       </p>
       <div className="absolute font-['Fahkwang:Medium','Noto_Sans_KR:Medium',sans-serif] leading-[32px] left-0 text-[24px] text-nowrap top-0 whitespace-pre" style={{ fontVariationSettings: "'wght' 500" }}>
@@ -263,7 +264,8 @@ function Frame11() {
       <p className="leading-[36px] relative shrink-0 text-[36px] text-white w-full">일반도장 시공</p>
       <div className="leading-[26px] relative shrink-0 text-[16px] text-[rgba(255,255,255,0.8)] w-full">
         <p className="mb-0">가장 기본이지만, 가장 중요합니다</p>
-        <p>균일하고 깨끗한 마감, 친환경 페인트 사용으로 안전하고 건강한 공간을 제공합니다</p>
+        <p>균일하고 깨끗한 마감, 친환경 페인트 사용으로 안전하고</p>
+        <p>건강한 공간을 제공합니다</p>
       </div>
     </div>
   );
@@ -764,25 +766,7 @@ function Container2() {
   );
 }
 
-function Container3() {
-  return (
-    <div className="absolute h-[20px] left-0 overflow-clip right-0 top-[16.5px]" data-name="Container">
-      <div className="absolute flex flex-col font-['SF_Pro:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 text-[14px] text-[rgba(255,255,255,0.8)] top-[10px] tracking-[-0.14px] translate-y-[-50%] w-[105.9px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[normal]">성함을 입력하세요</p>
-      </div>
-    </div>
-  );
-}
-
-function Input() {
-  return (
-    <div className="absolute border-[0px_0px_2px] border-[rgba(255,255,255,0.1)] border-solid h-[55px] left-0 overflow-clip right-0 top-[30px]" data-name="Input">
-      <Container3 />
-    </div>
-  );
-}
-
-function Item() {
+function Item({ value, onChange, placeholder }: { value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; placeholder: string }) {
   return (
     <div className="absolute bottom-[511px] left-0 right-0 top-[15px]" data-name="Item">
       <div className="absolute flex flex-col font-['SF_Pro:Medium',sans-serif] font-[510] justify-center leading-[0] left-0 text-[17px] text-nowrap text-white top-[15.5px] tracking-[-0.935px] translate-y-[-50%]" style={{ fontVariationSettings: "'wdth' 100" }}>
@@ -791,30 +775,19 @@ function Item() {
       <div className="absolute flex flex-col font-['SF_Pro:Regular',sans-serif] font-normal h-[37px] justify-center leading-[0] left-[32.42px] text-[#a59266] text-[25px] top-[12.5px] tracking-[-0.935px] translate-y-[-50%] w-[10.95px]" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="leading-[25px]">*</p>
       </div>
-      <Input />
+      <input
+        type="text"
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="absolute border-[0px_0px_2px] border-[rgba(255,255,255,0.1)] border-solid bg-transparent h-[55px] left-0 overflow-clip right-0 top-[30px] text-white placeholder:text-[rgba(255,255,255,0.8)] px-0 py-0 font-['SF_Pro:Regular',sans-serif] text-[14px] focus:outline-none focus:border-[rgba(255,255,255,0.3)]"
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      />
     </div>
   );
 }
 
-function Container4() {
-  return (
-    <div className="absolute h-[20px] left-0 overflow-clip right-0 top-[16.5px]" data-name="Container">
-      <div className="absolute flex flex-col font-['SF_Pro:Regular',sans-serif] font-normal justify-center leading-[0] left-0 text-[14px] text-[rgba(255,255,255,0.8)] text-nowrap top-[10.5px] tracking-[-0.14px] translate-y-[-50%]" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[normal] whitespace-pre">이메일을 입력하세요</p>
-      </div>
-    </div>
-  );
-}
-
-function Input1() {
-  return (
-    <div className="absolute border-[0px_0px_2px] border-[rgba(255,255,255,0.1)] border-solid h-[55px] left-0 overflow-clip right-0 top-[30px]" data-name="Input">
-      <Container4 />
-    </div>
-  );
-}
-
-function Item1() {
+function Item1({ value, onChange, placeholder }: { value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; placeholder: string }) {
   return (
     <div className="absolute bottom-[396px] left-0 right-0 top-[130px]" data-name="Item">
       <div className="absolute flex flex-col font-['SF_Pro:Medium',sans-serif] font-[510] justify-center leading-[0] left-0 text-[17px] text-nowrap text-white top-[15.5px] tracking-[-0.935px] translate-y-[-50%]" style={{ fontVariationSettings: "'wdth' 100" }}>
@@ -823,30 +796,19 @@ function Item1() {
       <div className="absolute flex flex-col font-['SF_Pro:Regular',sans-serif] font-normal h-[37px] justify-center leading-[0] left-[47.13px] text-[#a59266] text-[25px] top-[12.5px] tracking-[-0.935px] translate-y-[-50%] w-[10.95px]" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="leading-[25px]">*</p>
       </div>
-      <Input1 />
+      <input
+        type="email"
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="absolute border-[0px_0px_2px] border-[rgba(255,255,255,0.1)] border-solid bg-transparent h-[55px] left-0 overflow-clip right-0 top-[30px] text-white placeholder:text-[rgba(255,255,255,0.8)] px-0 py-0 font-['SF_Pro:Regular',sans-serif] text-[14px] focus:outline-none focus:border-[rgba(255,255,255,0.3)]"
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      />
     </div>
   );
 }
 
-function Container5() {
-  return (
-    <div className="absolute h-[20px] left-0 overflow-clip right-0 top-[16.5px]" data-name="Container">
-      <div className="absolute flex flex-col font-['SF_Pro:Regular',sans-serif] font-normal justify-center leading-[0] left-0 text-[14px] text-[rgba(255,255,255,0.8)] text-nowrap top-[10.5px] tracking-[-0.14px] translate-y-[-50%]" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[normal] whitespace-pre">연락처를 입력하세요 (ex : 01012345678)</p>
-      </div>
-    </div>
-  );
-}
-
-function Input2() {
-  return (
-    <div className="absolute border-[0px_0px_2px] border-[rgba(255,255,255,0.1)] border-solid h-[55px] left-0 overflow-clip right-0 top-[30px]" data-name="Input">
-      <Container5 />
-    </div>
-  );
-}
-
-function Item2() {
+function Item2({ value, onChange, placeholder }: { value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; placeholder: string }) {
   return (
     <div className="absolute bottom-[281px] left-0 right-0 top-[245px]" data-name="Item">
       <div className="absolute flex flex-col font-['SF_Pro:Medium',sans-serif] font-[510] justify-center leading-[0] left-0 text-[17px] text-nowrap text-white top-[15.5px] tracking-[-0.935px] translate-y-[-50%]" style={{ fontVariationSettings: "'wdth' 100" }}>
@@ -855,22 +817,19 @@ function Item2() {
       <div className="absolute flex flex-col font-['SF_Pro:Regular',sans-serif] font-normal h-[37px] justify-center leading-[0] left-[47.13px] text-[#a59266] text-[25px] top-[12.5px] tracking-[-0.935px] translate-y-[-50%] w-[10.95px]" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="leading-[25px]">*</p>
       </div>
-      <Input2 />
+      <input
+        type="tel"
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="absolute border-[0px_0px_2px] border-[rgba(255,255,255,0.1)] border-solid bg-transparent h-[55px] left-0 overflow-clip right-0 top-[30px] text-white placeholder:text-[rgba(255,255,255,0.8)] px-0 py-0 font-['SF_Pro:Regular',sans-serif] text-[14px] focus:outline-none focus:border-[rgba(255,255,255,0.3)]"
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      />
     </div>
   );
 }
 
-function Textarea() {
-  return (
-    <div className="absolute border-2 border-[rgba(255,255,255,0.1)] border-solid h-[196px] left-0 overflow-auto right-0 top-[40px]" data-name="Textarea">
-      <div className="absolute flex flex-col font-['SF_Pro:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-[25px] text-[14px] text-[rgba(255,255,255,0.8)] top-[35px] tracking-[-0.14px] translate-y-[-50%] w-[131.39px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[21px]">문의내용을 입력하세요</p>
-      </div>
-    </div>
-  );
-}
-
-function Item3() {
+function Item3({ value, onChange, placeholder }: { value: string; onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void; placeholder: string }) {
   return (
     <div className="absolute bottom-[15px] left-0 right-0 top-[360px]" data-name="Item">
       <div className="absolute flex flex-col font-['SF_Pro:Medium',sans-serif] font-[510] justify-center leading-[0] left-0 text-[17px] text-nowrap text-white top-[15.5px] tracking-[-0.935px] translate-y-[-50%]" style={{ fontVariationSettings: "'wdth' 100" }}>
@@ -879,18 +838,40 @@ function Item3() {
       <div className="absolute flex flex-col font-['SF_Pro:Regular',sans-serif] font-normal h-[37px] justify-center leading-[0] left-[61.83px] text-[#a59266] text-[25px] top-[12.5px] tracking-[-0.935px] translate-y-[-50%] w-[10.95px]" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="leading-[25px]">*</p>
       </div>
-      <Textarea />
+      <textarea
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="absolute border-2 border-[rgba(255,255,255,0.1)] border-solid bg-transparent h-[196px] left-0 overflow-auto right-0 top-[40px] text-white placeholder:text-[rgba(255,255,255,0.8)] px-[25px] py-[35px] font-['SF_Pro:Regular',sans-serif] text-[14px] resize-none focus:outline-none focus:border-[rgba(255,255,255,0.3)]"
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      />
     </div>
   );
 }
 
-function List() {
+function List({ formData, onInputChange }: { formData: { name: string; email: string; phone: string; message: string }; onInputChange: (field: string, value: string) => void }) {
   return (
     <div className="absolute h-[611px] left-0 right-0 top-0" data-name="List">
-      <Item />
-      <Item1 />
-      <Item2 />
-      <Item3 />
+      <Item 
+        value={formData.name} 
+        onChange={(e) => onInputChange('name', e.target.value)} 
+        placeholder="성함을 입력하세요" 
+      />
+      <Item1 
+        value={formData.email} 
+        onChange={(e) => onInputChange('email', e.target.value)} 
+        placeholder="이메일을 입력하세요" 
+      />
+      <Item2 
+        value={formData.phone} 
+        onChange={(e) => onInputChange('phone', e.target.value)} 
+        placeholder="연락처를 입력하세요 (ex : 01012345678)" 
+      />
+      <Item3 
+        value={formData.message} 
+        onChange={(e) => onInputChange('message', e.target.value)} 
+        placeholder="문의내용을 입력하세요" 
+      />
     </div>
   );
 }
@@ -907,15 +888,21 @@ function Icon() {
   );
 }
 
-function Label() {
+function Label({ checked, onChange }: { checked: boolean; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
   return (
     <div className="absolute h-[30px] left-0 top-[calc(50%+308px)] translate-y-[-50%] w-[205.75px]" data-name="Label">
-      <div className="absolute flex h-[22px] items-center justify-center left-0 top-[4px] w-[21.31px]">
-        <div className="flex-none scale-y-[-100%]">
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={onChange}
+        className="absolute h-[22px] w-[21.31px] left-0 top-[4px] cursor-pointer opacity-0 z-10"
+      />
+      <div className="absolute flex h-[22px] items-center justify-center left-0 top-[4px] w-[21.31px] pointer-events-none">
+        <div className={`flex-none scale-y-[-100%] ${checked ? 'opacity-100' : 'opacity-50'}`}>
           <Icon />
         </div>
       </div>
-      <div className="absolute flex flex-col font-['SF_Pro:Medium',sans-serif] font-[510] justify-center leading-[0] left-[32px] text-[14px] text-[rgba(255,255,255,0.55)] text-nowrap top-[15px] tracking-[-0.7px] translate-y-[-50%]" style={{ fontVariationSettings: "'wdth' 100" }}>
+      <div className="absolute flex flex-col font-['SF_Pro:Medium',sans-serif] font-[510] justify-center leading-[0] left-[32px] text-[14px] text-[rgba(255,255,255,0.55)] text-nowrap top-[15px] tracking-[-0.7px] translate-y-[-50%] cursor-pointer" style={{ fontVariationSettings: "'wdth' 100" }} onClick={() => onChange({ target: { checked: !checked } } as any)}>
         <p className="leading-[30px] whitespace-pre">개인정보처리방침에 동의합니다</p>
       </div>
     </div>
@@ -946,12 +933,100 @@ function Link() {
 }
 
 function Form() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+  const [privacyAgreed, setPrivacyAgreed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    setSubmitMessage(null);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // 유효성 검사
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      setSubmitMessage({ type: 'error', text: '모든 필드를 입력해주세요.' });
+      return;
+    }
+
+    if (!privacyAgreed) {
+      setSubmitMessage({ type: 'error', text: '개인정보처리방침에 동의해주세요.' });
+      return;
+    }
+
+    // 이메일 형식 검사
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitMessage({ type: 'error', text: '올바른 이메일 형식을 입력해주세요.' });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      // EmailJS 설정 - 사용자가 EmailJS 대시보드에서 가져와야 할 값들
+      const serviceId = 'service_1lvdtio'; // EmailJS 서비스 ID
+      const templateId = 'template_ljn5wxj'; // EmailJS 템플릿 ID
+      const publicKey = 'F79bdvgki-FAWZ6eNUxAy'; // EmailJS Public Key
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          to_email: 'artspread7@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      setSubmitMessage({ type: 'success', text: '문의가 성공적으로 전송되었습니다.' });
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setPrivacyAgreed(false);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setSubmitMessage({ type: 'error', text: '문의 전송에 실패했습니다. 다시 시도해주세요.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="h-[656px] relative shrink-0 w-[980px]" data-name="Form">
-      <List />
-      <Label />
+    <form onSubmit={handleSubmit} className="h-[656px] relative shrink-0 w-[980px]" data-name="Form">
+      <List formData={formData} onInputChange={handleInputChange} />
+      <Label checked={privacyAgreed} onChange={(e) => setPrivacyAgreed(e.target.checked)} />
       <Link />
-    </div>
+      
+      {/* 제출 버튼 */}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="absolute bottom-0 left-1/2 translate-x-[-50%] bg-[#a59266] text-white px-[40px] py-[12px] rounded-[5px] font-['SF_Pro:Medium',sans-serif] text-[16px] hover:bg-[#8b7a55] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      >
+        {isSubmitting ? '전송 중...' : '문의하기'}
+      </button>
+
+      {/* 메시지 표시 */}
+      {submitMessage && (
+        <div className={`absolute bottom-[-50px] left-1/2 translate-x-[-50%] px-[20px] py-[10px] rounded-[5px] text-white text-[14px] font-['SF_Pro:Regular',sans-serif] ${
+          submitMessage.type === 'success' ? 'bg-green-600' : 'bg-red-600'
+        }`}>
+          {submitMessage.text}
+        </div>
+      )}
+    </form>
   );
 }
 
