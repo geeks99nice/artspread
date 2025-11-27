@@ -1169,7 +1169,7 @@ export default function Frame9() {
   };
 
   return (
-    <div className="bg-[#edede9] content-stretch flex flex-col items-center relative size-full">
+    <div className="bg-[#edede9] content-stretch flex flex-col items-center relative size-full min-w-[1920px]">
       <Header />
       {showIntro && (
         <Frame7 isVisible={introVisible} onAnimationEnd={handleIntroEnd} />

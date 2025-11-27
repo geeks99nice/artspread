@@ -131,6 +131,8 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    min-width: 1920px;
+    overflow-x: auto;
   }
 }
 
@@ -191,6 +193,8 @@
 
 html {
   font-size: var(--font-size);
+  min-width: 1920px;
+  overflow-x: auto;
 }
 
 /* 스크롤바 숨김 */
