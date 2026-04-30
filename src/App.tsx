@@ -152,12 +152,16 @@ function Frame8() {
 function Grid() {
   return (
     <div className="text-[#3b3b3b] text-center md:text-left">
-      <p className="font-['Fahkwang:Medium','Noto_Sans_KR:Medium',sans-serif] text-[18px] md:text-[24px] leading-[1.7] md:leading-[32px] mb-5 md:mb-4" style={{ fontVariationSettings: "'wght' 500" }}>
-        Art Spread는 '디자인 컬러 스튜디오'로서 단순히 도장하는 것이 아닌,
+      <p className="font-['Fahkwang:Medium','Noto_Sans_KR:Medium',sans-serif] text-[18px] md:text-[24px] leading-[1.7] md:leading-[1.7] mb-5 md:mb-6" style={{ fontVariationSettings: "'wght' 500" }}>
+        Art Spread는 '디자인 컬러 스튜디오'로서<br />
+        단순히 도장하는 것이 아닌,<br />
         공간의 무드를 디자인 하는 작업을 합니다.
       </p>
-      <p className="font-['Fahkwang:Regular','Noto_Sans_KR:Regular',sans-serif] text-[14px] md:text-[18px] leading-[1.9] md:leading-[29.25px] text-[#555]" style={{ fontVariationSettings: "'wght' 400" }}>
-        색채, 질감, 빛의 조화를 통해 공간이 가진 본연의 매력을 드러내고, 감각적이면서도 안정감 있는 분위기를 만들어 벽 하나에도 감성이 담기도록 Art Spread의 터치는 공간을 새롭게 만듭니다.
+      <p className="font-['Fahkwang:Regular','Noto_Sans_KR:Regular',sans-serif] text-[14px] md:text-[18px] leading-[1.9] text-[#555]" style={{ fontVariationSettings: "'wght' 400" }}>
+        색채, 질감, 빛의 조화를 통해 공간이 가진 본연의 매력을 드러내고,<br />
+        감각적이면서도 안정감 있는 분위기를 만들어<br />
+        벽 하나에도 감성이 담기도록<br />
+        Art Spread의 터치는 공간을 새롭게 만듭니다.
       </p>
     </div>
   );
