@@ -152,17 +152,12 @@ function Frame8() {
 function Grid() {
   return (
     <div className="text-[#3b3b3b] text-center md:text-left">
-      <div className="font-['Fahkwang:Medium','Noto_Sans_KR:Medium',sans-serif] text-[18px] md:text-[24px] leading-snug md:leading-[32px] mb-4" style={{ fontVariationSettings: "'wght' 500" }}>
-        <p className="mb-0">
-          Art Spread는 '디자인 컬러 스튜디오'로서<br className="md:hidden" /> 단순히 도장하는 것이 아닌,
-        </p>
-        <p>공간의 무드를 디자인 하는 작업을 합니다.</p>
-      </div>
-      <p className="font-['Fahkwang:Regular','Noto_Sans_KR:Regular',sans-serif] text-[16px] md:text-[18px] leading-relaxed md:leading-[29.25px]" style={{ fontVariationSettings: "'wght' 400" }}>
-        색채, 질감, 빛의 조화를 통해 공간이 가진 본연의 매력을 드러내고,<br className="md:hidden" />{" "}
-        감각적이면서도 안정감 있는 분위기를 만들어<br className="md:hidden" />{" "}
-        벽 하나에도 감성이 담기도록<br className="md:hidden" />{" "}
-        Art Spread의 터치는 공간을 새롭게 만듭니다.
+      <p className="font-['Fahkwang:Medium','Noto_Sans_KR:Medium',sans-serif] text-[18px] md:text-[24px] leading-[1.7] md:leading-[32px] mb-5 md:mb-4" style={{ fontVariationSettings: "'wght' 500" }}>
+        Art Spread는 '디자인 컬러 스튜디오'로서 단순히 도장하는 것이 아닌,
+        공간의 무드를 디자인 하는 작업을 합니다.
+      </p>
+      <p className="font-['Fahkwang:Regular','Noto_Sans_KR:Regular',sans-serif] text-[14px] md:text-[18px] leading-[1.9] md:leading-[29.25px] text-[#555]" style={{ fontVariationSettings: "'wght' 400" }}>
+        색채, 질감, 빛의 조화를 통해 공간이 가진 본연의 매력을 드러내고, 감각적이면서도 안정감 있는 분위기를 만들어 벽 하나에도 감성이 담기도록 Art Spread의 터치는 공간을 새롭게 만듭니다.
       </p>
     </div>
   );
@@ -178,7 +173,7 @@ function Grid1() {
 
 function SectionSectionAboutContainer() {
   return (
-    <div className="flex flex-col md:flex-row items-start justify-between relative shrink-0 w-full px-4 md:px-10 max-w-[1728px] gap-6 md:gap-8">
+    <div className="flex flex-col md:flex-row items-start justify-between relative shrink-0 w-full px-4 md:px-10 max-w-[1728px] gap-4 md:gap-8">
       <div className="font-['Fahkwang:Light',sans-serif] text-[28px] md:text-[48px] lg:text-[62.6px] leading-tight md:leading-[70.4px] text-[#3b3b3b] shrink-0 text-center md:text-left w-full md:w-auto">
         <p className="mb-0">Where Color, Texture and</p>
         <p>Light Redefine Space</p>
