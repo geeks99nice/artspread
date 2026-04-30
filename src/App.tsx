@@ -152,13 +152,13 @@ function Frame8() {
 function Grid() {
   return (
     <div className="text-[#3b3b3b] text-center md:text-left">
-      <div className="font-['Fahkwang:Medium','Noto_Sans_KR:Medium',sans-serif] text-[16px] md:text-[24px] leading-snug md:leading-[32px] mb-4" style={{ fontVariationSettings: "'wght' 500" }}>
+      <div className="font-['Fahkwang:Medium','Noto_Sans_KR:Medium',sans-serif] text-[18px] md:text-[24px] leading-snug md:leading-[32px] mb-4" style={{ fontVariationSettings: "'wght' 500" }}>
         <p className="mb-0">
           Art Spread는 '디자인 컬러 스튜디오'로서<br className="md:hidden" /> 단순히 도장하는 것이 아닌,
         </p>
         <p>공간의 무드를 디자인 하는 작업을 합니다.</p>
       </div>
-      <p className="font-['Fahkwang:Regular','Noto_Sans_KR:Regular',sans-serif] text-[20px] md:text-[18px] leading-relaxed md:leading-[29.25px]" style={{ fontVariationSettings: "'wght' 400" }}>
+      <p className="font-['Fahkwang:Regular','Noto_Sans_KR:Regular',sans-serif] text-[16px] md:text-[18px] leading-relaxed md:leading-[29.25px]" style={{ fontVariationSettings: "'wght' 400" }}>
         색채, 질감, 빛의 조화를 통해 공간이 가진 본연의 매력을 드러내고,<br className="md:hidden" />{" "}
         감각적이면서도 안정감 있는 분위기를 만들어<br className="md:hidden" />{" "}
         벽 하나에도 감성이 담기도록<br className="md:hidden" />{" "}
@@ -415,7 +415,7 @@ function Frame({ images }: { images: string[] }) {
       {images.map((src, i) => (
         <div
           key={i}
-          className="relative flex-none overflow-hidden w-[80vw] aspect-[4/5] md:flex-1 md:w-auto md:aspect-auto md:h-full"
+          className="relative flex-none overflow-hidden w-[80vw] aspect-[4/5] [scroll-snap-align:start] md:[scroll-snap-align:none] md:flex-1 md:w-auto md:aspect-auto md:h-full"
         >
           <img alt="" className="absolute inset-0 size-full object-cover pointer-events-none" src={src} onError={(e) => { e.currentTarget.style.display = 'none'; }} />
         </div>
@@ -447,42 +447,23 @@ function Frame26({ images }: { images: string[] }) {
     if (!isDragging || !containerRef.current) return;
     e.preventDefault();
     const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 1;
-    containerRef.current.scrollLeft = scrollLeft - walk;
+    containerRef.current.scrollLeft = scrollLeft - (x - startX);
   };
 
   const handleMouseUp = () => setIsDragging(false);
   const handleMouseLeave = () => setIsDragging(false);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (!containerRef.current) return;
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - containerRef.current.offsetLeft);
-    setScrollLeft(containerRef.current.scrollLeft);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !containerRef.current) return;
-    const x = e.touches[0].pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    containerRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleTouchEnd = () => setIsDragging(false);
-
   return (
     <div
       ref={containerRef}
-      className={`bg-white flex gap-[10px] items-start overflow-x-auto overflow-y-hidden shrink-0 w-full select-none hide-scrollbar ${
-        isDragging ? 'cursor-grabbing' : 'cursor-grab'
-      }`}
+      className={`flex gap-[10px] md:gap-[20px] items-start overflow-x-auto overflow-y-hidden shrink-0 w-full select-none hide-scrollbar
+        [scroll-snap-type:x_mandatory] md:[scroll-snap-type:none]
+        px-[10vw] md:px-0
+        ${isDragging ? 'cursor-grabbing' : 'md:cursor-grab'}`}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
       style={{ WebkitOverflowScrolling: 'touch' }}
     >
       <Frame images={images} />
